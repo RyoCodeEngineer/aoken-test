@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,7 +10,6 @@ import {
   faTimes,
   faLeaf,
   faTree,
-  faArrowRight,
   faBuilding,
   faHome,
   faPhone,
@@ -147,11 +147,13 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between h-20">
             <div className="flex items-center space-x-3">
-              <FontAwesomeIcon
-                icon={faLeaf}
-                className="fas text-2xl text-[#4caf50]"
-              />
-              <h1 className="text-2xl font-bold text-white">青木建設</h1>
+              <Link href="/" className="flex items-center space-x-3">
+                <FontAwesomeIcon
+                  icon={faLeaf}
+                  className="fas text-2xl text-[#4caf50]"
+                />
+                <h1 className="text-2xl font-bold text-white">青木建設</h1>
+              </Link>
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -161,7 +163,7 @@ const Home = () => {
                   onClick={() =>
                     scrollToSection(item === "ホーム" ? "main" : item)
                   }
-                  className="text-white hover:text-[#4caf50] transition-colors duration-300"
+                  className="text-white/80 hover:text-white transition-colors duration-300"
                 >
                   {item}
                 </button>
@@ -348,7 +350,7 @@ const Home = () => {
 
       <footer className="bg-[#1565c0] text-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-4 gap-12">
             <div>
               <div className="flex items-center space-x-3 mb-6">
                 <FontAwesomeIcon
@@ -392,6 +394,31 @@ const Home = () => {
                   </a>
                 ))}
               </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-6">グループ</h3>
+              <ul className="space-y-8">
+                <li>
+                  <Link href="https://aoken-g.com/">
+                    <Image
+                      src={`${BASE_PATH}/logo.gif`}
+                      alt="青木不動産"
+                      width={300}
+                      height={200}
+                    ></Image>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://mythel.jp/salonlist/aeon_miyoshi/">
+                    <Image
+                      src={`${BASE_PATH}/4486_logo_7e6eea8f06b5ad782d06d7fa07ac411c4ef7f65d.jpg`}
+                      alt="mythel"
+                      width={300}
+                      height={200}
+                    ></Image>
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-white/20 text-center text-white/60">
